@@ -4,7 +4,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.yield
 
-fun main(): Unit = runBlocking {
+private fun main(): Unit = runBlocking {
     println("START")
     launch {
         newRoutine()
@@ -18,4 +18,8 @@ suspend fun newRoutine() {
     val num2 = 2
     yield()
     println("${num1 + num2}")
+}
+
+fun printWithThread(str : Any){
+    println("[${Thread.currentThread().name} $str")
 }
